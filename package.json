@@ -15,14 +15,20 @@
     "API"
   ],
   "devDependencies": {
-    "eslint": "^4.17.0",
+    "eslint": "^5.0.0",
     "eslint-config-google": "^0.9.1",
     "eslint-plugin-async-await": "0.0.0"
   },
   "scripts": {
-    "lint": "./node_modules/.bin/eslint **/*.gs --fix --quiet"
+    "lint": "./node_modules/.bin/eslint **/*.gs --fix --quiet",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "eslintIgnore": [
     "**/node_modules/**"
-  ]
+  ],
+  "snyk": true,
+  "dependencies": {
+    "snyk": "^1.362.1"
+  }
 }
