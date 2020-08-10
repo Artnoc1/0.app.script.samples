@@ -1,7 +1,7 @@
 -----------------------------
 
 # Awesome-adb
-===
+---
 
 ## Basic Usage
 ---
@@ -9,9 +9,11 @@
 ### Command syntax
 ---
 
-####adb basic syntax of the command is as follows:
+#### adb basic syntax of the command is as follows:
 
+'''
 adb [-d|-e|-s <serialNumber>] <command>
+'''
 
 If only one device / emulator connection, you can omit the
 
@@ -305,6 +307,8 @@ Success
 If the status is Failure said installation failure, such as:
 [100%] /data/local/tmp/map-20160831.apk
         pkg: /data/local/tmp/map-20160831.apk
+
+
 Failure [INSTALL_FAILED_ALREADY_EXISTS]
 Common Installation failed output code, the meaning and possible solutions are as follows:
 Output    Meaning    solutions
@@ -370,35 +374,44 @@ Delete the corresponding apk file / data / local / tmp under.
 Therefore, when necessary, according to this step, manually step through the installation process.
 Uninstalling
 command:
+
 adb uninstall [-k] <packagename>
 <Packagename> represents the application package name, -k optional parameter indicates uninstall the application but keep the data and cache directories.
 Command Example:
+
 adb uninstall com.qihoo360.mobilesafe
 Uninstall represents 360 mobile guards.
 Clear app cache data
 command:
+
 adb shell pm clear <packagename>
 <Packagename> represents the name of the application package, the effect of this command is equivalent to the application information in the settings screen, click the "Clear Cache" and "Clear data."
 Command Example:
+
 adb shell pm clear com.qihoo360.mobilesafe
 360 mobile guards to clear the data and cache.
 View Reception Activity
 command:
+
 adb shell dumpsys activity activities | grep mFocusedActivity
 Example output:
+
 mFocusedActivity: ActivityRecord{8079d7e u0 com.cyanogenmod.trebuchet/com.android.launcher3.Launcher t42}
 Where com.cyanogenmod.trebuchet / com.android.launcher3.Launcher is currently in the foreground Activity.
 View Running Services
 command:
+
 adb shell dumpsys activity services [<packagename>]
 <packagename> parameter is optional, command with <packagename> will output services related with that packagename, and command without <packagename> will output all services.
 Complete packagename is unnecessary. For example, adb shell dumpsys activity services org.mazhuang will output services related with org.mazhuang.demo1, org.mazhuang.demo2 and org.mazhuang123, etc.
 Query package detail information
 command:
+
 adb shell dumpsys package <packagename>
 There are many infos in output, include Activity Resolver Table, Registered ContentProviders, package name, userId, files/resources/codes path after install, version name and code, permissions info and their granted status, signing version, etc.
 <packagename> is package name of an application.
 Example output:
+
 Activity Resolver Table:
   Non-Data Actions:
       android.intent.action.MAIN:
