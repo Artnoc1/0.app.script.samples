@@ -1,12 +1,12 @@
 -----------------------------
 
-#Awesome-adb
+# Awesome-adb
 ===
 
-##Basic Usage
+## Basic Usage
 ---
 
-###Command syntax
+### Command syntax
 ---
 
 ####adb basic syntax of the command is as follows:
