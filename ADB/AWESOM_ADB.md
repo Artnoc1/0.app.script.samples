@@ -11,18 +11,18 @@
 
 #### adb basic syntax of the command is as follows:
 
-'''
+```
 adb [-d|-e|-s <serialNumber>] <command>
-'''
+```
 
 If only one device / emulator connection, you can omit the
 
 [-d | -e | -s <serialNumber>] 
 
 this part, the direct use 
-
+```
 adb <command>.
-
+```
 Targeting equipment for command
 
 If you have more than one device / emulator connection, you need to specify the target device for the command.
@@ -31,17 +31,11 @@ Parameter    Meaning
 
 -d    
 
-Specifies currently the 
-only Android device USB 
-connector as the command 
-target
+Specifies currently the only Android device USB connector as the command target
 
 -e    
 
-Specify currently the 
-only goal for the 
-command to run the 
-simulator
+Specify currently the only goal for the command to run the simulator
 
 -s <SerialNumber>    
 
@@ -53,37 +47,42 @@ In the case of multiple devices / simulators are connected to the more common
 parameters, serialNumber can be obtained through adb devices command.
 
 Such as:
-
+```
 $ adb devices
+```
 
-List of devices attached
-cf264b8f    device
+List of devices attached cf264b8f    device
 emulator-5554    device
+
 Output in the cf264b8f
 and emulator-5554 is 
 serialNumber. 
 
 For example, this time I want to specify cf264b8f this equipment to run the adb command to take a screen resolution:
-
+```
 adb -s cf264b8f shell wm size
+```
 
 Encountered multiple devices / simulators use the case of these parameters for the command to specify the target device, hereinafter to simplify the description will not be repeated.
 
-###Start/Stop
+###S tart/Stop
 
-####Start adb server command:
-
+#### Start adb server command:
+```
 adb start-server
+```
 
 (Generally no need to manually execute this command, when you run the command adb adb server if found does not start automatically from the transfer.)
 
-####Stop adb server command:
-
+#### Stop adb server command:
+```
 adb kill-server
+```
 
 View adb version command:
-
+```
 adb version
+```
 
 Sample output:
 
@@ -93,56 +92,53 @@ Revision 8f855a3d9b35-android
 Run adbd as root
 
 The operating principle is adb adb server daemon and the phone side PC side adbd establish a connection, then the PC side adb client via adb server forward command parsing after running adbd receive commands.
-
 So if adbd ordinary rights to perform some require root privileges to execute the command can not be directly used adb xxx execution. Then you can then execute the command adb shell after su, but also allows adbd root privileges to perform this high privilege can execute arbitrary commands.
-
 command:
-
+```
 adb root
+```
 
 Normal output:
+
 restarting adbd as root
 Now run adb shell, take a look at the command line prompt is not turned into a #?
-
 After some phone root can not let adbd by adb root execute commands with root privileges, some models such as Samsung, will be prompted to adbd can not run as root in production builds, then you can install adbd 
-
 Insecure, then adb root try.
-
 Accordingly, if you want to restore adbd non-root privileges, you can use adb unroot command.
-
-Designated adb server network port
-command:
-
+Designated adb server network port command:
+```
 adb -P <port> start-server
+```
 
 The default port is 5037.
 Device connection management
 Inquiries connected device / simulator command:
-
+```
 adb devices
+```
 
 Example output:
-
+---
 List of devices attached
-
 cf264b8f    device
 emulator-5554    device
-
+---
 Output format is 
-
+---
 [serialNumber] [state], 
-
+---
 serialNumber that is, we often say that the SN, state the following categories:
-
+---
 Offline 
-
+---
 indicates that the device is not connected to the success or unresponsive.
-
+---
 Device 
-
+---
 device is connected. Note that this state does not identify the Android system has been fully activated and operational in the device during startup device instance can be connected to the adb, but after boot the system before it becomes operational.
-
+---
 No device 
+---
 no device / emulator connection.
 The output shows the current connected the two devices / simulators, cf264b8f and emulator-5554 are they SN. 
 As can be seen from the emulator-5554 name it is an Android emulator.
@@ -150,18 +146,19 @@ As can be seen from the emulator-5554 name it is an Android emulator.
 Common alarm output:
 
 No device / emulator connection is successful.
-
+---
 List of devices attached
+---
 The device / emulator is not connected to adb or unresponsive.
-
+---
 List of devices attached
 cf264b8f    offline
-
+---
 USB connection
 USB connection normal use adb by the need to ensure that:
-
+---
 Hardware status is normal.
-
+---
 Including Android devices in the normal power state, USB cable and interface intact.
 
 Developer Options 2. 
@@ -178,72 +175,85 @@ The device driver is normal.
 It seems to worry about the Linux and Mac OS X, the Windows likely to be encountered in the case of the need to install drivers, this can be confirmed right "Computer" - "Properties", the "Device Manager" in view on related equipment Is there a yellow exclamation point or question mark, if not explain the driving state has been good. Otherwise, you can download a mobile assistant class program to install the driver first.
 
 Status after confirmation via USB cable connected computers and devices.
-
+---
 adb devices
 If you can see
 xxxxxx device
 
 Description Connection successful.
-
 Wireless connection (need to use the USB cable)
-
 In addition to the USB connection to the computer to use adb, can also be a wireless connection - although the connection process is also step using USB needs, but after a successful connection to your device can get rid of the limit of the USB cable within a certain range it !
 
 Steps:
 
 Connect Android device to run adb computer connected to the same local area network, such as connected to the same WiFi.
-
 The device connected to the computer via a USB cable.
-
 Make sure the connection is successful (you can run adb devices see if you can list the device).
-
 Allow the device listens on port 5555 TCP / IP connections:
-
+```
 adb tcpip 5555
-
+```
 Disconnect the USB connection.
-
 Find the IP address of the device.
-
 Generally the 'Settings' in - "About phone" - "state information" - "IP address" is found, you can also use the following in the View device information - IP address a Lane method adb command.
 Connect the device via IP address.
+---
 adb connect <device-ip-address>
+---
 Here <device-ip-address> is the IP address of the device found in the previous step.
 Confirm the connection status.
+
 adb devices
 If you can see
 <device-ip-address>:5555 device
+
 Description Connection successful.
 If you can not connect, verify that Android devices and the computer is connected to the same WiFi, then execute adb connect <device-ip-address> that step again;
 If that does not work, by adb kill-server restart the adb and then try it all over again.
-The wireless connection
-command:
+The wireless connection command:
+```
 adb disconnect <device-ip-address>
+```
+
 Wireless connection (without using the USB cable)
 Note: You need root privileges.
+
 On a "wireless connection (need to use USB cable)" method is described in official documents, need the help of a USB cable to enable the wireless connection.
-Since we want to achieve a wireless connection, it can all step down are wireless it? The answer is energy.
+Since we want to achieve a wireless connection, it can all step down are wireless it? 
+The answer is energy.
 Install a terminal emulator on the Android device.
-Equipment already installed you can skip this step. Terminal emulator download address I use is: Terminal Emulator for Android Downloads
+Equipment already installed you can skip this step. 
+Terminal emulator download address I use is: Terminal Emulator for Android Downloads
 To run the Android device and computer adb is connected to the same local area network, such as connected to the same WiFi.
 Open a terminal emulator on your Android device, in which run the command sequence:
+```
 su
 setprop service.adb.tcp.port 5555
+```
+
 Find the IP address of the Android device.
 Generally the 'Settings' in - "About phone" - "state information" - "IP address" is found, you can also use the following in the View device information - IP address a Lane method adb command.
 Connect Android device on a computer via adb and IP addresses.
+```
 adb connect <device-ip-address>
+```
+
 Here <device-ip-address> is the IP address of the device found in the previous step.
 If you can see connected to <device-ip-address>: 5555 such output indicates a successful connection.
-Notice: * Some device may not working unless you restart adbd service, so you need to run command on the device's terminal as below
-restart adbd
-if restart is not working, try following command:
+Notice: 
+* Some device may not working unless you restart adbd service, so you need to run command on the device's terminal as below restart adbd if restart is not working, try following command:
+```
 stop adbd
 start adbd
+```
+
 Application Management
 Check the list of
 Check the list of basic commands format
+```
 adb shell pm list packages [-f] [-d] [-e] [-s] [-3] [-i] [-u] [--user USER_ID] [FILTER]
+```
+
 That is the basis of adb shell pm list packages can add some parameters on the filter to view different lists, supports filtering parameters are as follows:
 Parameter    display list
 No    all applications
@@ -283,35 +293,46 @@ For example, to view a list of package names that contain the string mazhuang ap
 adb shell pm list packages mazhuang
 Of course, you can also use grep to filter:
 adb shell pm list packages | grep mazhuang
-Install APK
-Format:
+Install APK Format:
+---
 adb install [-lrtsdg] <path_to_apk>
+---
 parameter:
 Adb install may be followed by some optional parameters to control the behavior of the installation APK, available parameters and their meanings are as follows:
+
 Parameter    Meaning
--l    Will be applied to protect the installation directory / mnt / asec
--r    Allowed to cover the installation
--t    Allowed to install application specified in AndroidManifest.xml android: testOnly =" true " Application
--s    Install apps to sdcard
--d    Downgrade coverage allows installation
--g    Grant all runtime permissions
+---
+ -l    Will be applied to protect the installation directory / mnt / asec
+ -r    Allowed to cover the installation
+ -t    Allowed to install application specified in AndroidManifest.xml android: testOnly =" true " Application
+ -s    Install apps to sdcard
+ -d    Downgrade coverage allows installation
+ -g    Grant all runtime permissions
+---
 After you run the command to see if similar to the following output (status is Success) represents the installation was successful:
+---
 [100%] /data/local/tmp/1.apk
     pkg: /data/local/tmp/1.apk
 Success
+---
 The above is the output of adb current latest version v1.0.36, it will push apk file to display the progress of the percentage of mobile phones.
 Using older versions of adb output is this:
+---
 12040 KB/s (22205609 bytes in 1.801s)
         pkg: /data/local/tmp/SogouInput_android_v8.3_sweb.apk
 Success
+---
 If the status is Failure said installation failure, such as:
+---
 [100%] /data/local/tmp/map-20160831.apk
         pkg: /data/local/tmp/map-20160831.apk
-
-
+---
 Failure [INSTALL_FAILED_ALREADY_EXISTS]
+---
 Common Installation failed output code, the meaning and possible solutions are as follows:
+---
 Output    Meaning    solutions
+---
 INSTALL_FAILED_ALREADY_EXISTS    application already exists    use -r parameters
 INSTALL_FAILED_INVALID_APK    invalid APK file    
 INSTALL_FAILED_INVALID_URI    invalid filename APK    APK file names to ensure no Chinese
@@ -368,22 +389,24 @@ signatures do not match the previously installed version; ignoring!    already i
 Reference: PackageManager.java
 Adb install internal principle Introduction
 Adb install actually three steps:
+
 push apk files to / data / local / tmp.
 Call pm install installation.
 Delete the corresponding apk file / data / local / tmp under.
 Therefore, when necessary, according to this step, manually step through the installation process.
-Uninstalling
-command:
+Uninstalling command:
 
 adb uninstall [-k] <packagename>
 <Packagename> represents the application package name, -k optional parameter indicates uninstall the application but keep the data and cache directories.
 Command Example:
-
+```
 adb uninstall com.qihoo360.mobilesafe
 Uninstall represents 360 mobile guards.
+```
+
 Clear app cache data
 command:
-
+```
 adb shell pm clear <packagename>
 <Packagename> represents the name of the application package, the effect of this command is equivalent to the application information in the settings screen, click the "Clear Cache" and "Clear data."
 Command Example:
