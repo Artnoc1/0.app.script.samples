@@ -1,9 +1,7 @@
-# Apps Scripts for Android
+# Скрипты приложений для Android
 
-## [Converting Android Apps into Android Add-ons](https://developers.google.com/apps-script/add-ons/mobile/android)
+## [`Converting Android Apps into Android Add-ons`](https://developers.google.com/apps-script/add-ons/mobile/android)
+В этом примере описывается, как преобразовать существующее приложение Android в надстройку Android.
 
-This sample describes how to convert an existing Android app into an Android add-on.
-
-## Mobile Doc Translate Add-on
-
-A sample Google Apps Script mobile add-on for Google Docs.
+## Надстройка Mobile Doc Translate
+Пример мобильного дополнения Google Apps Script для Google Docs. 
