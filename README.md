@@ -1,11 +1,10 @@
 # Примеры скриптов Google Apps [![Build Status](https://travis-ci.org/gsuitedevs/apps-script-samples.svg?branch=master)](https://travis-ci.org/gsuitedevs/apps-script-samples)
 
 > Различные примеры кода и проекты для платформы Google Apps Script, платформы JavaScript в облаке. 
-
-Подробнее: [`https://developers.google.com/apps-script`](https://developers.google.com/apps-script)
+>
+> Подробнее: [`https://developers.google.com/apps-script`](https://developers.google.com/apps-script)
 
 ## Google API
-===
 
 <img
 src="https://www.gstatic.com/images/branding/product/2x/admin_96dp.png"
@@ -167,8 +166,7 @@ width="96px"/>
 - [Hangouts Chat Bots](http://g.co/codelabs/chat-apps-script)
 ---
 
-## Клонировать с помощью `clasp` инструмента командной строки 
----
+## Клонировать с помощью `clasp` инструмента командной строки
 
 > Узнайте как клонировать `clone`, извлекать `pull` и отправлять `push` проекты скриптов приложений в командной строке с помощью
 >
@@ -176,7 +174,6 @@ width="96px"/>
 ---
 
 ## Lint
----
 
 > Запустите ESLint для всего этого репо с помощью:
 
