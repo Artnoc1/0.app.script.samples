@@ -1,35 +1,28 @@
-# How to become a contributor and submit your own code
+# Как стать участником и отправить собственный код
 
-## Contributor License Agreements
+## Лицензионные соглашения с участниками
 
-We'd love to accept your sample apps and patches! Before we can take them, we
-have to jump a couple of legal hurdles.
+Мы будем рады принять ваши образцы приложений и исправлений! 
+Прежде чем мы сможем их взять, мы придется преодолеть пару юридических препятствий.
 
-Please fill out either the individual or corporate Contributor License Agreement
+Заполните лицензионное соглашение с индивидуальным или корпоративным участником.
 (CLA).
 
-  * If you are an individual writing original source code and you're sure you
-    own the intellectual property, then you'll need to sign an
-    [individual CLA](https://developers.google.com/open-source/cla/individual).
-  * If you work for a company that wants to allow you to contribute your work,
-    then you'll need to sign a
-    [corporate CLA](https://developers.google.com/open-source/cla/corporate).
+- Если вы частное лицо, пишущее исходный код, и уверены, что владеете интеллектуальной собственностью, тогда вам нужно будет подписать [индивидуальный CLA.](https://developers.google.com/open-source/cla/individual).
+- Если вы работаете в компании, которая хочет позволить вам внести свой вклад в вашу работу, тогда вам нужно будет подписать [корпоративный CLA.](https://developers.google.com/open-source/cla/corporate).
 
-Follow either of the two links above to access the appropriate CLA and
-instructions for how to sign and return it. Once we receive it, we'll be able to
-accept your pull requests.
+Перейдите по любой из двух ссылок выше, чтобы получить доступ к соответствующему CLA и инструкция, как подписать и вернуть. Как только мы его получим, мы сможем примите ваши запросы на вытягивание.
 
-## Contributing A Patch
+## Добавление патча
 
-1. Submit an issue describing your proposed change to the repo in question.
-1. The repo owner will respond to your issue promptly.
-1. If your proposed change is accepted, and you haven't already done so, sign a Contributor License Agreement (see details above).
-1. Fork the desired repo, develop and test your code changes.
-1. Ensure that your code adheres to the existing style in the sample to which you are contributing.
-1. Ensure that your code has an appropriate set of unit tests which all pass.
-1. Submit a pull request!
+- Отправьте проблему с описанием предлагаемого вами изменения в рассматриваемое репо.
+- Владелец репо оперативно ответит на ваш вопрос.
+- Если предложенное вами изменение принято, а вы еще этого не сделали, подпишите лицензионное соглашение с участником (см. Подробности выше).
+- Создайте желаемое репо, разработайте и протестируйте изменения кода.
+- Убедитесь, что ваш код соответствует стилю, существующему в образце, над которым вы работаете.
+- Убедитесь, что в вашем коде есть соответствующий набор модульных тестов, которые все проходят.
+- Отправьте запрос на перенос!
 
-## Style
+## Стиль
 
-Samples in this repository follow the [JavaScript Semi-Standard
-Style](https://github.com/Flet/semistandard).
+Образцы в этом репозитории соответствуют полу-стандарту [JavaScript Стиль](https://github.com/Flet/semistandard).
