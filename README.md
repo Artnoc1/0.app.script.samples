@@ -168,9 +168,7 @@ width="96px"/>
 
 ## Клонировать с помощью `clasp` инструмента командной строки
 
-> Узнайте как клонировать `clone`, извлекать `pull` и отправлять `push` проекты скриптов приложений в командной строке с помощью
->
-> [clasp](https://developers.google.com/apps-script/guides/clasp).
+> Узнайте как клонировать `clone`, извлекать `pull` и отправлять `push` проекты скриптов приложений в командной строке с помощью [clasp](https://developers.google.com/apps-script/guides/clasp).
 ---
 
 ## Lint
